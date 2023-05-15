@@ -7,6 +7,21 @@ const guessNumBot = function () {
     const successNum = function () {
         let userNum = prompt('Угадай число от 1 до 100')
 
+        if (isNaN(userNum) || userNum === '') {
+            alert('Введи число!')
+            successNum()
+        }
+
+        if (userNum === null) {
+            alert('Игра окончена')
+            return
+        }
+        
+        if (userNum === numBot) {
+            alert('Поздравляю, Вы угадали!!!')
+            return
+        }
+
         if (userNum > numBot) {
             alert('Загаданное число меньше')
             successNum()
@@ -17,21 +32,6 @@ const guessNumBot = function () {
             successNum()
         } 
 
-        if (isNaN(userNum) || userNum === '') {
-            alert('Введи число!')
-            successNum()
-        }
-
-        if (userNum === numBot) {
-            alert('Поздравляю, Вы угадали!!!')
-            return
-        }
-
-        if (userNum === null) {
-            alert('Игра окончена')
-            return
-        }
-
     }
     
 
@@ -41,7 +41,3 @@ const guessNumBot = function () {
 }
 
 guessNumBot()
-
-
-// let userNum = prompt('Угадай число от 1 до 100')
-// console.log(typeof userNum)
