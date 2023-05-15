@@ -10,16 +10,28 @@ const guessNumBot = function () {
         if (userNum > numBot) {
             alert('Загаданное число меньше')
             successNum()
-        } else if (userNum < numBot) {
+        } 
+        
+        if (userNum < numBot) {
             alert('Загаданное число больше')
             successNum()
-        } else if (isNaN(userNum) || userNum === '') {
+        } 
+
+        if (isNaN(userNum) || userNum === '') {
             alert('Введи число!')
             successNum()
-
         }
 
-        return userNum
+        if (userNum === numBot) {
+            alert('Поздравляю, Вы угадали!!!')
+            return
+        }
+
+        if (userNum === null) {
+            alert('Игра окончена')
+            return
+        }
+
     }
     
 
