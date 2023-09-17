@@ -1,13 +1,26 @@
-let num = 266219
-let array = (num + "").split("")
-let sum = 1
+// const getDayName = (lang) => {
+//     const days = {
+//         en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+//         ru: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
+//     };
+//
+//     return days[lang]
+// };
+//
+// console.log(getDayName('en'));
+// console.log(getDayName('ru'));
 
-for (let i = 0; i < array.length; i++) {
-    sum *=  Number(array[i])
-    
+let lang = 'ru'
+let  namePerson = 'Артем'
+
+
+namePerson === 'Артем' ? console.log('директор') : namePerson === 'Александр' ? console.log('преподаватель') : console.log('студент')
+
+switch (lang) {
+    case 'ru':
+        console.log('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье');
+        break
+    case 'en':
+        console.log('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        break
 }
-
-sum **= 3
-
-console.log(sum)
-console.log((sum + "").slice(0, 2))
