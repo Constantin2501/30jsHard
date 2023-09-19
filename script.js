@@ -1,26 +1,17 @@
-// const getDayName = (lang) => {
-//     const days = {
-//         en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-//         ru: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
-//     };
-//
-//     return days[lang]
-// };
-//
-// console.log(getDayName('en'));
-// console.log(getDayName('ru'));
+const getSting = (str) => {
 
-let lang = 'ru'
-let  namePerson = 'Артем'
+    if (typeof str !== 'string') {
+        console.log('передана не строка')
+        return
+    }
 
+    str = str.trim()
 
-namePerson === 'Артем' ? console.log('директор') : namePerson === 'Александр' ? console.log('преподаватель') : console.log('студент')
+    if (str.length > 30) {
+        str = str.substring(0, 30) + '...'
+    }
 
-switch (lang) {
-    case 'ru':
-        console.log('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье');
-        break
-    case 'en':
-        console.log('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-        break
+    return str
 }
+
+console.log(getSting('Готово'))
