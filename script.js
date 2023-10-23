@@ -1,59 +1,20 @@
-const guessNumBot = function () {
-    let tryCount = 10
+const week = ['воскресение','понедельник','вторник','среда','четверг','пятница','суббота']
+const currentDayIndex = new Date().getDay()
+const currentDay = week[currentDayIndex]
 
-    const randomNum = function () {
-        return Math.round(Math.random() * 99 + 1)
+
+const weekList = document.createElement('ul')
+document.body.append(weekList)
+
+week.forEach((item) => {
+    let listItem = document.createElement('li')
+
+    if (item === 'суббота' || item === 'воскресение') {
+        listItem.innerHTML = `<em>${item}</em>`
+    } else if (item === currentDay) {
+        listItem.innerHTML = `<strong>${item}</strong>`
+    } else {
+        listItem.textContent = item
     }
-
-    const successNum = function () {
-
-        if (tryCount === 0) {
-            let tryAgain = confirm('Попытки закончились, хотите сыграть еще?')
-            if (tryAgain) {
-                guessNumBot()
-            } else alert('спасибо за игру!')
-            return
-        }
-
-        let userNum = prompt(`Угадай число от 1 до 100. Осталось попыток: ${tryCount}`)
-
-        if (userNum === null) {
-            alert('Игра окончена')
-            return
-        }
-
-        if (+userNum === numBot) {
-            let playAgain = confirm('Поздравляю, Вы угадали!!! Хотите сыграть еще?')
-            if (playAgain) {
-                guessNumBot()
-            } else alert('спасибо за игру!')
-            return
-        }
-
-        if (isNaN(+userNum) || userNum === '') {
-            alert('Введи число!')
-            successNum()
-        }
-
-        if (userNum > numBot) {
-            tryCount--
-            alert(`Загаданное число меньше. Осталось попыток: ${tryCount}`)
-            successNum()
-        }
-
-        if (userNum < numBot) {
-            tryCount--
-            alert(`Загаданное число больше Осталось попыток: ${tryCount}`)
-            successNum()
-        }
-
-
-    }
-    
-
-    let numBot = randomNum()
-    successNum()
-
-}
-
-guessNumBot()
+    weekList.insertAdjacentElement('beforeend', listItem)
+})
